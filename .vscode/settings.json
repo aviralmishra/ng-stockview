@@ -6,7 +6,7 @@
         "**/node_modules": false,
         "**/bower_components": false,
         "**/*.map": true,
-        "**/*.tmp": true
+        "**/*.tmp": false
     },
     "files.autoSave": "onFocusChange"
 }

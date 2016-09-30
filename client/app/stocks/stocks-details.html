@@ -1,40 +1,46 @@
 <section class="mainbar">
   <section class="matter">
     <div class="container">
-      <div class="row">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th>Symbol</th>
-              <th>Ask</th>
-              <th>Bid</th>
-              <th>Last Traded</th>
-              <th>Low</th>
-              <th>High</th>
-              <th>Low (52 Weeks)</th>
-              <th>High (52 Weeks)</th>
-              <th>Volume</th>
-              <th>Open</th>
-              <th>Close</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{vm.stock.symbol}}</td>
-              <td>{{vm.stock.ask}}</td>
-              <td>{{vm.stock.bid}}</td>
-              <td>{{vm.stock.last_trade_date}}</td>
-              <td>{{vm.stock.low}}</td>
-              <td>{{vm.stock.high}}</td>
-              <td>{{vm.stock.low_52_weeks}}</td>
-              <td>{{vm.stock.high_52_weeks}}</td>
-              <td>{{vm.stock.volume}}</td>
-              <td>{{vm.stock.open}}</td>
-              <td>{{vm.stock.close}}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="container">
+        <div>
+          <button class="btn btn-info btn-form-md" ng-click="vm.goBack()">
+            <i class="fa fa-hand-o-left"></i> Back
+          </button>
+        </div>
+        <div class="row">
+          <table class="table table-striped  table-inverse">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Symbol</th>
+                <th>Ask</th>
+                <th>Bid</th>
+                <th>Last Traded</th>
+                <th>Low</th>
+                <th>High</th>
+                <th>Low (52 Weeks)</th>
+                <th>High (52 Weeks)</th>
+                <th>Volume</th>
+                <th>Open</th>
+                <th>Close</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{vm.stock.symbol}}</td>
+                <td>{{vm.stock.ask}}</td>
+                <td>{{vm.stock.bid}}</td>
+                <td>{{vm.stock.last_trade_date}}</td>
+                <td>{{vm.stock.low}}</td>
+                <td>{{vm.stock.high}}</td>
+                <td>{{vm.stock.low_52_weeks}}</td>
+                <td>{{vm.stock.high_52_weeks}}</td>
+                <td>{{vm.stock.volume}}</td>
+                <td>{{vm.stock.open}}</td>
+                <td>{{vm.stock.close}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
   </section>
 </section>
