@@ -1,0 +1,136 @@
+@gray-darker: lighten(#000, 13.5%);
+@gray-dark: lighten(#000, 20%);
+@gray: lighten(#000, 33.5%);
+@gray-light: lighten(#000, 60%);
+@gray-lighter: lighten(#000, 93.5%);
+@gray-lightest: lighten(#000, 97.25%);
+@brand-primary: #428bca;
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
+@color_lightblue: #52b9e9;
+@color_blue: #1171a3;
+@color_success: #43c83c;
+@color_warning: #f88529;
+@color_important: #fa3031;
+@color_violet: #935ab6;
+@color_white: #ffffff;
+
+body {
+  background-color: @gray-lightest;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+#page-wrapper {
+  padding: 0 15px;
+  min-height: 568px;
+  position: inherit;
+  margin: 0 0 0 20px;
+  border-left: 1px solid darken(@gray-lightest, 6.5%);
+}
+
+.navbar-fixed-top .nav {
+  padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+  padding: 20px 5px;
+}
+
+#splash-page {
+  z-index: 99999 !important;
+}
+
+#splash-page .bar {
+  width: 100%;
+}
+
+.page-splash {
+  z-index: 99999 !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  opacity: .9;
+  pointer-events: auto;
+  backface-visibility: hidden;
+  transition: opacity 0.3s linear;
+}
+
+.page-splash-message {
+  text-align: center;
+  margin: 20% auto 0 auto;
+  font-size: 400%;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-shadow: 2px 2px #000000;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #F58A00;
+  padding: 0;
+}
+
+.page-splash-message.page-splash-message-subtle {
+  margin: 30% auto 0 auto;
+  font-size: 200%;
+}
+
+.ng-cloak {
+  display: none !important;
+}
+
+.mainbar {
+  position: relative;
+  margin-right: 20px;
+  width: auto;
+  min-height: 550px;
+}
+
+.mainbar .container {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.mainbar .matter {
+  border-top: 0px solid #ddd;
+  margin: 1em;
+}
+
+.dummy {
+    margin-top: 100%;
+}
+
+.thumbnail {
+    position: absolute;
+    top: 15px;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    text-align:center;
+    padding-top:calc(50% - 30px);
+  	background-color: @color_violet;
+    color: @color_white;
+    font-size: 3em;
+}
+
+@media(min-width:768px) {
+  body {
+    padding-top: 100px;
+  }
+  navbar-fixed-top .navbar-brand {
+    padding: 20px 5px;
+  }
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 250px;
+    padding: 0 30px;
+    border-left: 1px solid darken(@gray-lightest, 6.5%);
+  }
+}
