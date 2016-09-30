@@ -3,6 +3,7 @@ config
 
 # Distribution package
 dist
+.tmp
 
 # Ignore Visual Studio  Project
 *.user
