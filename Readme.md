@@ -8,6 +8,14 @@ It allows the user to:
 3. Remove stocks from their featured list
 4. View and analyse stock's past data through graphs and charts based on past data
 
+## Instructions to run the application
+
+Run the following commands to run the application:
+
+1. git clone https://github.com/aviralmishra/ng-stockview.git
+2. cd ng-stockview
+3. gulp serve-dev
+
 ## Note
 
 1. 'config' directory is not added as it contains sensitive information.
