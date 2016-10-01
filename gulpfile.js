@@ -274,6 +274,7 @@ function startBrowserSync(isDev, specRunner) {
   var options = {
     proxy: 'localhost:' + port,
     port: 3000,
+    startPath: '/stockview',
     files: isDev ? [
       config.client + '**/*.*',
       '!' + config.less,
@@ -292,10 +293,6 @@ function startBrowserSync(isDev, specRunner) {
     notify: true,
     reloadDelay: 0
   };
-
-  if (specRunner) {
-    options.startPath = config.specRunnerFile;
-  }
 
   browserSync(options);
 }

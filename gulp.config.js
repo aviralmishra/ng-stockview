@@ -13,7 +13,7 @@ module.exports = function () {
       './src/**/*.js',
       './*.js'
     ],
-    build: './dist/',
+    build: './dist/stockview/',
     client: client,
     css: temp + 'styles.css',
     fonts: './bower_components/font-awesome/fonts/**/*.*',

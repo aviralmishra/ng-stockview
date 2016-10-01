@@ -20,7 +20,7 @@
     return service;
 
     function getStock(id) {
-      return $http.get('/api/stock/' + id)
+      return $http.get('http://localhost:4000/api/stock/' + id)
         .then(getStockComplete)
         .catch(function (message) {
           exception.catcher('XHR Failed for getStock')(message);
@@ -33,7 +33,7 @@
     }
 
     function getStocks() {
-      return $http.get('/api/stocks')
+      return $http.get('http://localhost:4000/api/stocks')
         .then(getStocksComplete)
         .catch(function (message) {
           exception.catcher('XHR Failed for getStocks')(message);
