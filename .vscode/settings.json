@@ -3,10 +3,11 @@
         "**/.git": true,
         "**/.DS_Store": true,
         "**/*.js": false,
-        "**/node_modules": false,
-        "**/bower_components": false,
+        "**/node_modules": true,
+        "**/bower_components": true,
         "**/*.map": true,
-        "**/*.tmp": false
+        "**/*.tmp": true,
+        "**/dist": false
     },
     "files.autoSave": "onFocusChange"
 }

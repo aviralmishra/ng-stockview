@@ -288,7 +288,7 @@ function startBrowserSync(isDev, specRunner) {
     injectChanges: true,
     logFileChanges: true,
     logLevel: 'debug',
-    logPrefix: 'gulp-patterns',
+    logPrefix: '[stockview]',
     notify: true,
     reloadDelay: 0
   };
