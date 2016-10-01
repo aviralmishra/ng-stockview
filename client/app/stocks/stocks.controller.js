@@ -9,14 +9,14 @@
 
   /* @ngInject */
   function StocksCtrl($state, $stateParams, $window, stocksService, logger) {
-    var vm = this;
+    var pm = this;
     var stockSymbol = $state.symbol;
 
-    vm.stocks = [];
-    vm.stock = {};
+    pm.stocks = [];
+    pm.stock = {};
 
-    vm.title = 'Stock Details';
-    vm.goBack = goBack;
+    pm.title = 'Stock Details';
+    pm.goBack = goBack;
 
     activate();
 
@@ -28,8 +28,8 @@
 
     function getStock() {
       return stocksService.getStock($stateParams.id).then(function (data) {
-        vm.stock = data;
-        return vm.stock;
+        pm.stock = data;
+        return pm.stock;
       });
     }
 

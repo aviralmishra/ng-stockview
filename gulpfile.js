@@ -5,32 +5,32 @@ var config = require('./gulp.config')();
 var del = require('del');
 var path = require('path');
 var _ = require('lodash');
-var $ = require('gulp-load-plugins')({lazy: true});
+var $ = require('gulp-load-plugins')({ lazy: true });
 var port = process.env.PORT || config.defaultPort;
 
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
 gulp.task('jscode', function () {
-  log('Analyzing source with JSHint and JSCS');
+  log('Running JSHint and JSCS');
 
   return gulp
     .src(config.alljs)
     .pipe($.if(args.verbose, $.print()))
     .pipe($.jscs())
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
+    .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
     .pipe($.jshint.reporter('fail'));
 });
 
 gulp.task('styles', ['clean-styles'], function () {
-  log('Compiling Less --> CSS');
+  log('Running Less to CSS');
 
   return gulp
     .src(config.less)
     .pipe($.plumber())
     .pipe($.less())
-    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+    .pipe($.autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
     .pipe(gulp.dest(config.temp));
 });
 
@@ -43,37 +43,39 @@ gulp.task('fonts', ['clean-fonts'], function () {
 });
 
 gulp.task('images', ['clean-images'], function () {
-  log('Copying and compressing the images');
+  log('Compressing and copying images');
 
   return gulp
     .src(config.images)
-    .pipe($.imagemin({optimizationLevel: 4}))
+    .pipe($.imagemin({ optimizationLevel: 4 }))
     .pipe(gulp.dest(config.build + 'images'));
 });
 
 gulp.task('clean', function (done) {
   var delconfig = [].concat(config.build, config.temp);
-  log('Cleaning: ' + $.util.colors.blue(delconfig));
+  log('Cleaning directory ' + $.util.colors.blue(delconfig));
+
   del(delconfig, done);
 });
 
 gulp.task('clean-fonts', function (done) {
-  log('Cleaning fonts...');
+  log('Cleaning fonts');
   clean(config.build + 'fonts/**/*.*', done);
 });
 
 gulp.task('clean-images', function (done) {
-  log('Cleaning images...');
+  log('Cleaning images');
   clean(config.build + 'images/**/*.*', done);
 });
 
 gulp.task('clean-styles', function (done) {
-  log('Cleaning styles...');
+  log('Cleaning styles');
   clean(config.temp + '**/*.css', done);
 });
 
 gulp.task('clean-code', function (done) {
-  log('Cleaning code...');
+  log('Cleaning code');
+
   var files = [].concat(
     config.temp + '**/*.js',
     config.build + '**/*.html',
@@ -91,7 +93,7 @@ gulp.task('templatecache', ['clean-code'], function () {
 
   return gulp
     .src(config.htmltemplates)
-    .pipe($.minifyHtml({empty: true}))
+    .pipe($.minifyHtml({ empty: true }))
     .pipe($.angularTemplatecache(
       config.templateCache.file,
       config.templateCache.options
@@ -100,7 +102,7 @@ gulp.task('templatecache', ['clean-code'], function () {
 });
 
 gulp.task('wiredep', function () {
-  log('Wire up the bower css js and our app js into the html');
+  log('Wire up the Bower CSS, JS and application code into the HTML');
   var options = config.getWiredepDefaultOptions();
   var wiredep = require('wiredep').stream;
 
@@ -112,7 +114,7 @@ gulp.task('wiredep', function () {
 });
 
 gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
-  log('Wire up the app css into the html, and call wiredep ');
+  log('Wire up the application CSS into the HTML');
 
   return gulp
     .src(config.index)
@@ -121,7 +123,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
 });
 
 gulp.task('build', ['optimize', 'images', 'fonts'], function () {
-  log('Building everything');
+  log('Building the application');
 
   var msg = {
     title: 'gulp build',
@@ -134,9 +136,9 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function () {
 });
 
 gulp.task('optimize', ['inject'], function () {
-  log('Optimizing the javascript, css, html');
+  log('Optimizing application resources');
 
-  var assets = $.useref.assets({searchPath: './'});
+  var assets = $.useref.assets({ searchPath: './' });
   var templateCache = config.temp + config.templateCache.file;
   var cssFilter = $.filter('**/*.css');
   var jsLibFilter = $.filter('**/' + config.optimized.lib);
@@ -146,7 +148,7 @@ gulp.task('optimize', ['inject'], function () {
     .src(config.index)
     .pipe($.plumber())
     .pipe($.inject(
-      gulp.src(templateCache, {read: false}), {
+      gulp.src(templateCache, { read: false }), {
         starttag: '<!-- inject:templates:js -->'
       }))
     .pipe(assets)
@@ -170,15 +172,15 @@ gulp.task('optimize', ['inject'], function () {
 });
 
 /**
- * Bump the version
- * --type=pre will bump the prerelease version *.*.*-x
- * --type=patch or no flag will bump the patch version *.*.x
- * --type=minor will bump the minor version *.x.*
- * --type=major will bump the major version x.*.*
- * --version=1.2.3 will bump to a specific version and ignore other flags
+ * Update the version
+ * --type=pre will update the prerelease version *.*.*-x
+ * --type=patch or no flag will update the patch version *.*.x
+ * --type=minor will update the minor version *.x.*
+ * --type=major will update the major version x.*.*
+ * --version=1.2.3 will update to a specific version and ignore other flags
  */
-gulp.task('bump', function () {
-  var msg = 'Bumping versions';
+gulp.task('update', function () {
+  var msg = 'Updating version';
   var type = args.type;
   var version = args.version;
   var options = {};
@@ -223,7 +225,7 @@ function serve(isDev, specRunner) {
       log('files changed on restart:\n' + ev);
       setTimeout(function () {
         browserSync.notify('reloading now ...');
-        browserSync.reload({stream: false});
+        browserSync.reload({ stream: false });
       }, config.browserReloadDelay);
     })
     .on('start', function () {

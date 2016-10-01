@@ -10,7 +10,7 @@
     var directive = {
       bindToController: true,
       controller: TopNavController,
-      controllerAs: 'vm',
+      controllerAs: 'pm',
       restrict: 'EA',
       scope: {
         'tagline': '=',
@@ -21,7 +21,7 @@
 
     /* @ngInject */
     function TopNavController() {
-      var vm = this;
+      var pm = this;
     }
 
     return directive;

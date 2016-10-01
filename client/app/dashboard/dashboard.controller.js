@@ -8,10 +8,10 @@
   Dashboard.$inject = ['$state', 'stocksService', 'logger'];
 
   function Dashboard($state, stocksService, logger) {
-    var vm = this;
-    vm.stocks = [];
-    vm.gotoStock = gotoStock;
-    vm.title = 'Dashboard';
+    var pm = this;
+    pm.stocks = [];
+    pm.gotoStock = gotoStock;
+    pm.title = 'Dashboard';
 
     activate();
 
@@ -23,8 +23,8 @@
 
     function getStocks() {
       return stocksService.getStocks().then(function (data) {
-        vm.stocks = data;
-        return vm.stocks;
+        pm.stocks = data;
+        return pm.stocks;
       });
     }
 

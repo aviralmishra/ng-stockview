@@ -2,9 +2,9 @@
   <section class="matter">
     <div class="container">
       <div class="row">
-        <div ng-repeat="s in vm.stocks | limitTo:12 | orderBy:'symbol'" " class="col-md-3 col-sm-4 col-xs-6 ">
+        <div ng-repeat="s in pm.stocks | limitTo:12 | orderBy:'symbol'" " class="col-md-3 col-sm-4 col-xs-6 ">
           <div class="dummy">
-            <a href="#" class="thumbnail purple " ng-click="vm.gotoStock(s.symbol)">{{s.symbol}}</a>
+            <a href="#" class="thumbnail purple " ng-click="pm.gotoStock(s.symbol)">{{s.symbol}}</a>
           </div>
         </div>
       </div>

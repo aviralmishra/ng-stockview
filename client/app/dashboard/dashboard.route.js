@@ -20,7 +20,7 @@
           url: '/',
           templateUrl: 'app/dashboard/dashboard.html',
           controller: 'Dashboard',
-          controllerAs: 'vm',
+          controllerAs: 'pm',
           title: 'dashboard',
           settings: {
             nav: 1,

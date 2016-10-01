@@ -28,7 +28,7 @@
           url: '/:id',
           templateUrl: 'app/stocks/stocks-details.html',
           controller: 'StocksCtrl',
-          controllerAs: 'vm',
+          controllerAs: 'pm',
           title: 'Stock Details',
           settings: {
             nav: 2,
