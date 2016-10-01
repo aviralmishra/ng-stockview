@@ -1,20 +1,19 @@
 module.exports = function () {
-  var client = './client/';
+  var client = './src/client/';
   var clientApp = client + 'app/';
   var report = './report/';
   var root = './';
-  var server = './server/';
+  var server = './src/server/';
   var temp = './.tmp/';
   var wiredep = require('wiredep');
-  var bowerFiles = wiredep({devDependencies: true})['js'];
+  var bowerFiles = wiredep({ devDependencies: true })['js'];
 
   var config = {
     alljs: [
-      './client/**/*.js',
-      './server/**/*.js',
+      './src/**/*.js',
       './*.js'
     ],
-    build: './build/',
+    build: './dist/',
     client: client,
     css: temp + 'styles.css',
     fonts: './bower_components/font-awesome/fonts/**/*.*',
@@ -59,7 +58,7 @@ module.exports = function () {
     ],
 
     defaultPort: 4000,
-    nodeServer: './server/app.js'
+    nodeServer: './src/server/app.js'
 
   };
 

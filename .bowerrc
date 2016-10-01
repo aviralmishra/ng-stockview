@@ -1,5 +1,6 @@
 {
-    "name": "bower_components",
-    "scripts": {
-    }
+  "name": "bower_components",
+  "scripts": {
+    "postinstall": "gulp wiredep"
+  }
 }
