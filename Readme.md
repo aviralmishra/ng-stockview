@@ -1,5 +1,5 @@
 # stockview
-StockView is a responsive and interactive finance application build using Angular 1, Node.JS, HTML, Bootstrap, Gulp and Bower.
+StockView is a responsive and interactive finance application built using Angular 1, Node.JS, HTML, Bootstrap, Less, Gulp and Bower.
 
 It allows the user to:
 
@@ -10,7 +10,7 @@ It allows the user to:
 
 ## Instructions to run the application
 
-Run the following commands to run the application:
+Run the following commands to run the 'dev' build of the application:
 
 1. git clone https://github.com/aviralmishra/ng-stockview.git
 2. cd ng-stockview
@@ -18,4 +18,4 @@ Run the following commands to run the application:
 
 ## Note
 
-1. 'config' directory is not added as it contains sensitive information.
+1. 'config' directory is not added to the repo as it contains sensitive information.
